@@ -40,6 +40,7 @@ public class TankDrive extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+    	Robot.driveTrain.setPercentVBus();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -63,6 +64,7 @@ public class TankDrive extends Command {
     @Override
     protected void end() {
     	Robot.driveTrain.stop();
+    	Robot.driveTrain.setPercentVBus();
     }
 
     // Called when another command which requires one or more of the same
