@@ -71,8 +71,8 @@ public class ParseAutonomousText extends CommandGroup {
 	    		System.out.println("Elevating");
     		}
     		else if(task.contains("ft")) {
-    		addSequential(new DriveXFeetMotionMagic(Double.parseDouble(task.substring(0, task.indexOf("ft")))));
-    		System.out.println("DrivingXFeet");
+    			addSequential(new DriveXFeetMotionMagic(Double.parseDouble(task.substring(0, task.indexOf("ft")))));
+    			System.out.println("DrivingXFeet");
     		}
     		else if (task.contains("dg")) {
     			addSequential(new TurnNDegreesAbsolutePID(Double.parseDouble(computedAuton.substring(0, task.indexOf("dg")))));
