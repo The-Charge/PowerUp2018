@@ -1181,9 +1181,7 @@ Children:
         default: []
         name: Parameters
         validators: null
-        value:
-        - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: rawAuton,
-          type: String, value: ''}
+        value: []
       Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Run When Disabled, validators: null, value: false}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
@@ -1192,7 +1190,7 @@ Children:
         validators: null
         value: []
       On False Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: On False Command, type: Command, validators: null, value: None}
+        name: On False Command, type: Command, validators: null, value: DoNotUse}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Conditional Command
@@ -1205,8 +1203,7 @@ Children:
         default: []
         name: Parameters
         validators: null
-        value:
-        - !!robotbuilder.data.properties.ParameterDescriptor {name: rawAuton, type: String}
+        value: []
       Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Run When Disabled, validators: null, value: false}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
@@ -1217,7 +1214,7 @@ Children:
         - !!robotbuilder.data.properties.ParameterSet
           name: doNothing
           parameters:
-          - {name: rawAuton, type: String, value: 'RR,0ft,||LL,0ft,||Rl,0ft,||LR.0ft,'}
+          - {name: rawAuton, type: String, value: 'RR,0ft,||LL,0ft,||RL,0ft,||LR.0ft,'}
       Commands: !!robotbuilder.data.properties.ListProperty
         default: []
         name: Commands
@@ -1251,7 +1248,7 @@ Children:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command Group
-    Name: None
+    Name: DoNotUse
   Properties: {}
   Base: Commands
   Name: Commands
