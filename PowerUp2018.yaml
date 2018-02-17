@@ -480,14 +480,49 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Claw}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id012 []
+        default: []
+        name: Parameter presets
+        validators: null
+        value: []
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Instant Command
+    Name: CloseClaw
+  - Children: []
+    Properties:
+      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Autonomous Selection, validators: null, value: false}
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value:
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: distance, type: double}
+      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Run When Disabled, validators: null, value: false}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: DriveTrain}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id012
+        - !!robotbuilder.data.properties.ParameterSet
+          name: Feet5
+          parameters:
+          - {name: distance, type: double, value: '5'}
+        - !!robotbuilder.data.properties.ParameterSet
+          name: Feet10
+          parameters:
+          - {name: distance, type: double, value: '10'}
+        - !!robotbuilder.data.properties.ParameterSet
+          name: Feet20
+          parameters:
+          - {name: distance, type: double, value: '20'}
         name: Parameter presets
         validators: null
         value: *id012
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-    Base: Instant Command
-    Name: CloseClaw
+    Base: Command
+    Name: DriveXFeetMotionMagic
   - Children: []
     Properties:
       Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
@@ -524,10 +559,10 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Claw}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id013 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id013
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Instant Command
