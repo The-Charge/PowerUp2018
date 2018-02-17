@@ -96,6 +96,7 @@ public class OI {
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         SmartDashboard.putData("CloseClaw", new CloseClaw());
+        SmartDashboard.putData("DriveToCurrent: 0.1 Speed", new DriveToCurrent(0.1, 10));
         SmartDashboard.putData("DriveXFeetMotionMagic: Feet5", new DriveXFeetMotionMagic(5));
         SmartDashboard.putData("DriveXFeetMotionMagic: Feet10", new DriveXFeetMotionMagic(10));
         SmartDashboard.putData("DriveXFeetMotionMagic: Feet20", new DriveXFeetMotionMagic(20));

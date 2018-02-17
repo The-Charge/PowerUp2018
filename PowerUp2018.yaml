@@ -497,6 +497,35 @@ Children:
         name: Parameters
         validators: null
         value:
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: speed, type: double}
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: maxCurrent, type: double}
+      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Run When Disabled, validators: null, value: false}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: DriveTrain}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id012
+        - !!robotbuilder.data.properties.ParameterSet
+          name: 0.1 Speed
+          parameters:
+          - {name: speed, type: double, value: '0.1'}
+          - {name: maxCurrent, type: double, value: '10'}
+        name: Parameter presets
+        validators: null
+        value: *id012
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: DriveToCurrent
+  - Children: []
+    Properties:
+      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Autonomous Selection, validators: null, value: false}
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value:
         - !!robotbuilder.data.properties.ParameterDescriptor {name: distance, type: double}
       Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Run When Disabled, validators: null, value: false}
@@ -708,7 +737,7 @@ Children:
         name: Parameters
         validators: null
         value:
-        - !!robotbuilder.data.properties.ParameterDescriptor {name: Angle, type: double}
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: angle, type: double}
       D: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: D, validators: null,
         value: 0.001}
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
@@ -716,7 +745,7 @@ Children:
       Continuous: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Continuous, validators: null, value: true}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id012
+        default: &id013
         - !!robotbuilder.data.properties.ParameterSet
           name: '90'
           parameters:
@@ -735,7 +764,7 @@ Children:
           - {name: Angle, type: double, value: '0'}
         name: Parameter presets
         validators: null
-        value: *id012
+        value: *id013
       Tolerance: !!robotbuilder.data.properties.DoubleProperty {default: 0.2, name: Tolerance,
         validators: null, value: 1.0}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
