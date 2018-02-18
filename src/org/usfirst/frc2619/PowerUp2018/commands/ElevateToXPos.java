@@ -40,6 +40,7 @@ public class ElevateToXPos extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+    	Robot.elevator.brakeOff();
     	Robot.elevator.powToTarget(m_target);
     	Robot.elevator.currentLimiting();
     }
