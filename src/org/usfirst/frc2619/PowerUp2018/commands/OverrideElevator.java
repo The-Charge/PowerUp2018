@@ -42,9 +42,9 @@ public class OverrideElevator extends Command {
     protected void initialize() {
     	Robot.elevator.brakeOff();
     	if (m_isForward)
-    		Robot.elevator.runMotorRev();
-    	else 
     		Robot.elevator.runMotorFwd();
+    	else 
+    		Robot.elevator.runMotorRev();
     }
 
     // Called repeatedly when this Command is scheduled to run
