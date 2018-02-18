@@ -68,7 +68,7 @@ public class RobotMap {
         shiftersSolenoid = new Solenoid(0, 0);
         LiveWindow.addActuator("Shifters", "Solenoid", shiftersSolenoid);
         
-        collectorMotor = new WPI_TalonSRX(8);
+        collectorMotor = new WPI_TalonSRX(7);
         
         
         clawSolenoid = new Solenoid(0, 2);
@@ -80,7 +80,7 @@ public class RobotMap {
         elevatorCounter = new GearTooth(4, false);
         LiveWindow.addSensor("Elevator", "Counter", elevatorCounter);
         
-        elevatorFollowerMotor = new WPI_TalonSRX(7);
+        elevatorFollowerMotor = new WPI_TalonSRX(4);
         
         
         elevatorBrakes = new Solenoid(0, 1);

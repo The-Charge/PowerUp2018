@@ -118,7 +118,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '8'
+          value: '7'
       Base: Talon SRX
       Name: Motor
     Properties:
@@ -204,7 +204,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '7'
+          value: '4'
       Base: Talon SRX
       Name: FollowerMotor
     - Children: []
