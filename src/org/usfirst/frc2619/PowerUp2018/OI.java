@@ -70,6 +70,10 @@ public class OI {
     public JoystickButton runCollectorReverseBtn;
     public JoystickButton overrideUpBtn;
     public JoystickButton overrideDownBtn;
+    public JoystickButton runShoulderLowBtn;
+    public JoystickButton runShoulderMiddleBtn;
+    public JoystickButton runShoulderMidHighBtn;
+    public JoystickButton runShoulderHighBtn;
     public JoystickButton elevateToSixBtn;
     public Joystick buttonBox;
 
@@ -80,8 +84,16 @@ public class OI {
 
         buttonBox = new Joystick(2);
         
-        elevateToSixBtn = new JoystickButton(buttonBox, 16);
+        elevateToSixBtn = new JoystickButton(buttonBox, 17);
         elevateToSixBtn.whenPressed(new ElevateToXPos(6));
+        runShoulderHighBtn = new JoystickButton(buttonBox, 16);
+        runShoulderHighBtn.whenPressed(new ShoulderToXPos(.9));
+        runShoulderMidHighBtn = new JoystickButton(buttonBox, 15);
+        runShoulderMidHighBtn.whenPressed(new ShoulderToXPos(.7));
+        runShoulderMiddleBtn = new JoystickButton(buttonBox, 14);
+        runShoulderMiddleBtn.whenPressed(new ShoulderToXPos(.5));
+        runShoulderLowBtn = new JoystickButton(buttonBox, 13);
+        runShoulderLowBtn.whenPressed(new ShoulderToXPos(.3));
         overrideDownBtn = new JoystickButton(buttonBox, 12);
         overrideDownBtn.whileHeld(new OverrideElevator(false));
         overrideUpBtn = new JoystickButton(buttonBox, 11);
@@ -138,6 +150,10 @@ public class OI {
         SmartDashboard.putData("RunCollectorReverse", new RunCollectorReverse());
         SmartDashboard.putData("ShiftHigh", new ShiftHigh());
         SmartDashboard.putData("ShiftLow", new ShiftLow());
+        SmartDashboard.putData("ShoulderToXPos: low", new ShoulderToXPos(.3));
+        SmartDashboard.putData("ShoulderToXPos: middle", new ShoulderToXPos(.5));
+        SmartDashboard.putData("ShoulderToXPos: midHigh", new ShoulderToXPos(.7));
+        SmartDashboard.putData("ShoulderToXPos: high", new ShoulderToXPos(.9));
         SmartDashboard.putData("TankDrive", new TankDrive());
         SmartDashboard.putData("ToggleLockStraight", new ToggleLockStraight());
         SmartDashboard.putData("AutonomousText", new AutonomousText());
