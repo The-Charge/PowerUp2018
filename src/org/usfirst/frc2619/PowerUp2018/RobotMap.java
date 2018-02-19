@@ -110,6 +110,9 @@ public class RobotMap {
         elevatorFollowerMotor.follow(elevatorMotor);
         driveTrainRightFrontMotor.setInverted(true);
         driveTrainRightRearMotor.setInverted(true);
+        reverseCollectorMotor.setInverted(true);
+        reverseCollectorEncoder.setReverseDirection(true);
+        
         driveTrainAHRS = new AHRS(Port.kMXP);
     }
 }
