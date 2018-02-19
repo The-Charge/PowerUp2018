@@ -53,7 +53,7 @@ public class StationOneRightSwitch extends CommandGroup {
      	addSequential(new TurnNDegreesAbsolutePID(90));
      	addSequential(new DriveXFeetMotionMagic(14));
      	addSequential(new TurnNDegreesAbsolutePID(180));
-     	addSequential(new DriveToCurrent(.3, 10));
+     	addSequential(new DriveToCurrent(.2, 5));
  
     } 
 }
