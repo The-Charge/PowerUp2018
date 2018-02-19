@@ -53,7 +53,7 @@ public class StationTwoLeftSwitch extends CommandGroup {
     	addSequential(new TurnNDegreesAbsolutePID(-90));
     	addSequential(new DriveXFeetMotionMagic(9));
     	addSequential(new TurnNDegreesAbsolutePID(0));
-    	addSequential(new DriveToCurrent(.3, 10));
+    	addSequential(new DriveToCurrent(.2, 5));
  
     } 
 }
