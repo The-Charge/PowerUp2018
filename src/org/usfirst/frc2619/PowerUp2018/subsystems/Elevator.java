@@ -84,11 +84,11 @@ public class Elevator extends Subsystem {
     }
 
     public void runMotorFwd() {
-    	setPow(MOTOR_POW);
+    	setPow(-MOTOR_POW);
     }
     
     public void runMotorRev() {
-    	setPow(-MOTOR_POW);
+    	setPow(MOTOR_POW);
     }
     
     public void powToTarget(int target) {
