@@ -94,11 +94,11 @@ public class Elevator extends Subsystem {
     public void powToTarget(int target) {
     	count();
     	if (target == 0) 
-    		setPow(-MOTOR_POW);
+    		runMotorRev();
     	else if (pos >= target)
-    		setPow(-MOTOR_POW);
+    		runMotorRev();
     	else 
-    		setPow(MOTOR_POW);
+    		runMotorFwd();
     }
     
     public void currentLimiting() {
