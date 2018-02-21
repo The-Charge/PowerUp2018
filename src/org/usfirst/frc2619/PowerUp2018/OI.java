@@ -152,6 +152,7 @@ public class OI {
         SmartDashboard.putData("RunCollectorForward", new RunCollectorForward());
         SmartDashboard.putData("RunCollectorReverse: fast", new RunCollectorReverse(-.05));
         SmartDashboard.putData("RunCollectorReverse: slow", new RunCollectorReverse(-.025));
+        SmartDashboard.putData("SenseCube", new SenseCube());
         SmartDashboard.putData("ShiftHigh", new ShiftHigh());
         SmartDashboard.putData("ShiftLow", new ShiftLow());
         SmartDashboard.putData("ShoulderToXPos: low", new ShoulderToXPos(.3));
