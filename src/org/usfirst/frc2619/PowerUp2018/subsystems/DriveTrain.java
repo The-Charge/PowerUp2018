@@ -196,5 +196,9 @@ public class DriveTrain extends Subsystem {
     public double getCurrent() {
 		return leftFrontMotor.getOutputCurrent();
 	}
+    
+    public double getYaw() {
+    	return ahrs.getYaw();
+    }
 }
 
