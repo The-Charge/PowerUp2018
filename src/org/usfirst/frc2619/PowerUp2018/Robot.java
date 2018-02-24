@@ -131,6 +131,7 @@ public class Robot extends TimedRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        //SmartDashboard.putNumber("Elevator Position", 1);
     }
 
     /**
@@ -139,5 +140,6 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        //Robot.elevator.writeDashboardValues();
     }
 }

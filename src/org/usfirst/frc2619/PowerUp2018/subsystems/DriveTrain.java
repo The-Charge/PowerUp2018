@@ -54,6 +54,11 @@ public class DriveTrain extends Subsystem {
 	public double speedD = SPEED_D_CONSTANT;
 	public double speedF = SPEED_F_CONSTANT;
 	
+	//Change after testing
+	private static final double ELEVATOR_POS_THREE = 0.50;
+	private static final double ELEVATOR_POS_FOUR = 0.25;
+	private static final double ELEVATOR_POS_FIVE = 0.10;
+	
 	private final int MAX_TICKS_PER_SECOND = 8691;
     public final double TICKS_PER_FOOT = 4420;
     
@@ -98,7 +103,47 @@ public class DriveTrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    public void run(double leftSpeed, double rightSpeed) {
+    public void run(double l, double r) {
+    	double leftSpeed = l;
+    	double rightSpeed = r;
+    	
+    	if (Robot.elevator.wasForward) {
+    		if (Robot.elevator.getElevatorPos() <= 2) {
+    			leftSpeed = l;
+    			rightSpeed = r;
+    		}
+    		else if (Robot.elevator.getElevatorPos() == 3) {
+    			leftSpeed = l * ELEVATOR_POS_THREE;
+    			rightSpeed = r * ELEVATOR_POS_THREE;
+    		}
+    		else if (Robot.elevator.getElevatorPos() == 4) {
+    			leftSpeed = l * ELEVATOR_POS_FOUR;
+    			rightSpeed = r * ELEVATOR_POS_FOUR;    	
+    		}
+    		else if (Robot.elevator.getElevatorPos() == 5) {
+    			leftSpeed = l * ELEVATOR_POS_FIVE;
+    			rightSpeed = r * ELEVATOR_POS_FIVE;
+    		}
+    	}
+    	else if (!Robot.elevator.wasForward) {
+    		if (Robot.elevator.getElevatorPos() <= 1) {
+    			leftSpeed = l;
+    			rightSpeed = r;
+    		}
+    		else if (Robot.elevator.getElevatorPos() == 2) {
+    			leftSpeed = l * ELEVATOR_POS_THREE;
+    			rightSpeed = r * ELEVATOR_POS_THREE;
+    		}
+    		else if (Robot.elevator.getElevatorPos() == 3) {
+    			leftSpeed = l * ELEVATOR_POS_FOUR;
+    			rightSpeed = r * ELEVATOR_POS_FOUR;    	
+    		}
+    		else if (Robot.elevator.getElevatorPos() == 4) {
+    			leftSpeed = l * ELEVATOR_POS_FIVE;
+    			rightSpeed = r * ELEVATOR_POS_FIVE;
+    		}
+    	}
+    	
     	if (driveLocked) {
 			double avSpeed = (leftSpeed + rightSpeed) / 2.0;
 			leftSpeed = avSpeed;
