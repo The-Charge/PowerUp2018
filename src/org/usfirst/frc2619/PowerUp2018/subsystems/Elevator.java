@@ -112,7 +112,7 @@ public class Elevator extends Subsystem {
 	}
 
     private boolean isForward() {
-    	return (motor.get() > 0);
+    	return (motor.get() < 0);
     }
     
     public boolean isPastTarget(int target) {
