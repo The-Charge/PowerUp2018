@@ -57,12 +57,12 @@ public class Shoulder extends Subsystem {
     // here. Call these from Commands.
     
     public void raiseShoulder() {
-		solenoid.set(true);
+		solenoid.set(false);
 		isHigh = true;
 	}
 
 	public void lowerShoulder() {
-		solenoid.set(false);
+		solenoid.set(true);
 		isHigh = false;
 	}
 
