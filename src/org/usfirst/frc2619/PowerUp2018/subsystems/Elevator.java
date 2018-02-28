@@ -68,7 +68,7 @@ public class Elevator extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    private void count() {
+    public void count() {
     	int diff = counter.get() - lastValue;
     	if (!isForward())
     		diff = -diff;
@@ -85,11 +85,13 @@ public class Elevator extends Subsystem {
     }
 
     public void runMotorFwd() {
+    	count();
     	setPow(-MOTOR_POW);
     	wasForward = true;
     }
     
     public void runMotorRev() {
+    	count();
     	setPow(MOTOR_POW);
     	wasForward = false;
     }
