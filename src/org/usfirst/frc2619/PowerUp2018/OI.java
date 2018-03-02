@@ -96,7 +96,7 @@ public class OI {
         runCollectorReverseFastBtn = new JoystickButton(buttonBox, 11);
         runCollectorReverseFastBtn.whileHeld(new RunCollectorReverse(-.05));
         runCollectorForwardBtn = new JoystickButton(buttonBox, 10);
-        runCollectorForwardBtn.whileHeld(new RunCollectorForward());
+        runCollectorForwardBtn.whenPressed(new RunCollectorForward());
         elevateToSixBtn = new JoystickButton(buttonBox, 9);
         elevateToSixBtn.whenPressed(new ElevateToXPos(6));
         elevateToFiveBtn = new JoystickButton(buttonBox, 8);
