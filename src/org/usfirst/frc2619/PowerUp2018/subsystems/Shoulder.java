@@ -65,6 +65,10 @@ public class Shoulder extends Subsystem {
 		solenoid.set(true);
 		isHigh = false;
 	}
+	
+	public boolean getIsHigh() {
+		return isHigh;
+	}
 
 }
 

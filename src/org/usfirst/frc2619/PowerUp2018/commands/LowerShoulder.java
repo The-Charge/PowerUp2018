@@ -38,7 +38,9 @@ public class LowerShoulder extends InstantCommand {
     // Called once when this command runs
     @Override
     protected void initialize() {
-    	Robot.shoulder.lowerShoulder();
+    	if(Robot.elevator.getElevatorPos() == 0 || Robot.elevator.getElevatorPos() ==5) {
+    		Robot.shoulder.lowerShoulder();
+    	}
     }
 
 }
