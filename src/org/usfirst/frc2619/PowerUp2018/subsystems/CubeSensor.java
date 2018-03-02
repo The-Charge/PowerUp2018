@@ -59,6 +59,10 @@ public class CubeSensor extends Subsystem {
     public void checkForCube() {
     	SmartDashboard.putBoolean("CubeInRobot:", !digitalInput.get());
     }
+    
+    public boolean getCube() {
+    	return !digitalInput.get();
+    }
 
 }
 
