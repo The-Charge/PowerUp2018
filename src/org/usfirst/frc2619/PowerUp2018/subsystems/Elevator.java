@@ -112,6 +112,11 @@ public class Elevator extends Subsystem {
 		followerMotor.configContinuousCurrentLimit((int) CURRENT_LIMIT, RobotMap.TIMEOUT_MS);
 		followerMotor.enableCurrentLimit(true);
 	}
+    
+    public void upToZero() {
+    	setPow(-MOTOR_POW);
+    	wasForward = true;
+    }
 
     private boolean isForward() {
     	return (motor.get() < 0);
