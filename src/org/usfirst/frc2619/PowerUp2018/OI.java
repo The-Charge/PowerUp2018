@@ -123,7 +123,7 @@ public class OI {
         shiftLowBtn.whenPressed(new ShiftLow());
         invertDriveBtn = new JoystickButton(rightJoystick, 2);
         invertDriveBtn.whenPressed(new InvertDrive());
-        lockStraightBtn = new JoystickButton(rightJoystick, 1);
+        lockStraightBtn = new JoystickButton(rightJoystick, 5);
         lockStraightBtn.whenPressed(new ToggleLockStraight());
         leftJoystick = new Joystick(0);
         

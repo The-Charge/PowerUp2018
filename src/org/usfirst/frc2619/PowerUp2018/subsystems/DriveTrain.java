@@ -116,7 +116,7 @@ public class DriveTrain extends Subsystem {
     	double rightSpeed = r;
     	
     	if (Robot.elevator.wasForward) {
-    		if (Robot.elevator.getElevatorPos() <= 2) {
+    		if (Robot.elevator.getElevatorPos() <= 2 || Robot.oi.rightJoystick.getRawButton(6)) {
     			leftSpeed = l;
     			rightSpeed = r;
     		}
@@ -134,7 +134,7 @@ public class DriveTrain extends Subsystem {
     		}
     	}
     	else if (!Robot.elevator.wasForward) {
-    		if (Robot.elevator.getElevatorPos() <= 1) {
+    		if (Robot.elevator.getElevatorPos() <= 1 || Robot.oi.rightJoystick.getRawButton(6)) {
     			leftSpeed = l;
     			rightSpeed = r;
     		}
