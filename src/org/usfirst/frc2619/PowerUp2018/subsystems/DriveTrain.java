@@ -82,6 +82,7 @@ public class DriveTrain extends Subsystem {
     
     public boolean isReversed = false;
     public boolean driveLocked = false;
+    public boolean speedOverriden = true;
     
     @Override
     public void initDefaultCommand() {
@@ -115,43 +116,36 @@ public class DriveTrain extends Subsystem {
     	double leftSpeed = l;
     	double rightSpeed = r;
     	
-    	if (Robot.elevator.wasForward) {
-    		if (Robot.elevator.getElevatorPos() <= 2 || Robot.oi.rightJoystick.getRawButton(6)) {
-    			leftSpeed = l;
-    			rightSpeed = r;
-    		}
-    		else if (Robot.elevator.getElevatorPos() == 3) {
-    			leftSpeed = l * ELEVATOR_POS_THREE;
-    			rightSpeed = r * ELEVATOR_POS_THREE;
-    		}
-    		else if (Robot.elevator.getElevatorPos() == 4) {
-    			leftSpeed = l * ELEVATOR_POS_FOUR;
-    			rightSpeed = r * ELEVATOR_POS_FOUR;    	
-    		}
-    		else if (Robot.elevator.getElevatorPos() == 5) {
-    			leftSpeed = l * ELEVATOR_POS_FIVE;
-    			rightSpeed = r * ELEVATOR_POS_FIVE;
-    		}
+    	if (speedOverriden) {
+	    	if (Robot.elevator.wasForward) {
+	    		if (Robot.elevator.getElevatorPos() == 3) {
+	    			leftSpeed = l * ELEVATOR_POS_THREE;
+	    			rightSpeed = r * ELEVATOR_POS_THREE;
+	    		}
+	    		else if (Robot.elevator.getElevatorPos() == 4) {
+	    			leftSpeed = l * ELEVATOR_POS_FOUR;
+	    			rightSpeed = r * ELEVATOR_POS_FOUR;    	
+	    		}
+	    		else if (Robot.elevator.getElevatorPos() == 5) {
+	    			leftSpeed = l * ELEVATOR_POS_FIVE;
+	    			rightSpeed = r * ELEVATOR_POS_FIVE;
+	    		}
+	    	}
+	    	else if (!Robot.elevator.wasForward) {
+	    		if (Robot.elevator.getElevatorPos() == 2) {
+	    			leftSpeed = l * ELEVATOR_POS_THREE;
+	    			rightSpeed = r * ELEVATOR_POS_THREE;
+	    		}
+	    		else if (Robot.elevator.getElevatorPos() == 3) {
+	    			leftSpeed = l * ELEVATOR_POS_FOUR;
+	    			rightSpeed = r * ELEVATOR_POS_FOUR;    	
+	    		}
+	    		else if (Robot.elevator.getElevatorPos() == 4) {
+	    			leftSpeed = l * ELEVATOR_POS_FIVE;
+	    			rightSpeed = r * ELEVATOR_POS_FIVE;
+	    		}
+	    	}
     	}
-    	else if (!Robot.elevator.wasForward) {
-    		if (Robot.elevator.getElevatorPos() <= 1 || Robot.oi.rightJoystick.getRawButton(6)) {
-    			leftSpeed = l;
-    			rightSpeed = r;
-    		}
-    		else if (Robot.elevator.getElevatorPos() == 2) {
-    			leftSpeed = l * ELEVATOR_POS_THREE;
-    			rightSpeed = r * ELEVATOR_POS_THREE;
-    		}
-    		else if (Robot.elevator.getElevatorPos() == 3) {
-    			leftSpeed = l * ELEVATOR_POS_FOUR;
-    			rightSpeed = r * ELEVATOR_POS_FOUR;    	
-    		}
-    		else if (Robot.elevator.getElevatorPos() == 4) {
-    			leftSpeed = l * ELEVATOR_POS_FIVE;
-    			rightSpeed = r * ELEVATOR_POS_FIVE;
-    		}
-    	}
-    	
     	if (driveLocked) {
 			double avSpeed = (leftSpeed + rightSpeed) / 2.0;
 			leftSpeed = avSpeed;
@@ -168,7 +162,6 @@ public class DriveTrain extends Subsystem {
     	else if (!isReversed) {
 			leftFrontMotor.set(leftSpeed);
 			rightFrontMotor.set(rightSpeed);
-
 		} 
     	else {
 			leftFrontMotor.set(-1 * leftSpeed);

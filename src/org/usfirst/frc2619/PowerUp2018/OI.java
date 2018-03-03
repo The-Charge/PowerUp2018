@@ -57,6 +57,7 @@ public class OI {
     public JoystickButton invertDriveBtn;
     public JoystickButton shiftLowBtn;
     public JoystickButton shiftHighBtn;
+    public JoystickButton overrideSpeedBtn;
     public Joystick rightJoystick;
     public JoystickButton openClawBtn;
     public JoystickButton closeClawBtn;
@@ -117,6 +118,8 @@ public class OI {
         openClawBtn.whenPressed(new OpenClaw());
         rightJoystick = new Joystick(1);
         
+        overrideSpeedBtn = new JoystickButton(rightJoystick, 6);
+        overrideSpeedBtn.whenPressed(new OverrideSpeed());
         shiftHighBtn = new JoystickButton(rightJoystick, 4);
         shiftHighBtn.whenPressed(new ShiftHigh());
         shiftLowBtn = new JoystickButton(rightJoystick, 3);
@@ -144,6 +147,7 @@ public class OI {
         SmartDashboard.putData("OpenClaw", new OpenClaw());
         SmartDashboard.putData("OverrideElevator: Up", new OverrideElevator(true));
         SmartDashboard.putData("OverrideElevator: Down", new OverrideElevator(false));
+        SmartDashboard.putData("OverrideSpeed", new OverrideSpeed());
         SmartDashboard.putData("RaiseShoulder", new RaiseShoulder());
         SmartDashboard.putData("RunCollectorForward", new RunCollectorForward());
         SmartDashboard.putData("RunCollectorReverse: fast", new RunCollectorReverse(-.05));
