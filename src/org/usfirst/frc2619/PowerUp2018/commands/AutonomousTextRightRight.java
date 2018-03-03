@@ -55,10 +55,10 @@ public class AutonomousTextRightRight extends CommandGroup {
     	addSequential(new StartElevator());
     	
     	try {
-    		File fi = new File("/u/pygameRR.txt");
+    		File fi = new File("/home/lvuser/pygameRR.txt");
 			Scanner reader = new Scanner(new FileReader(fi));
 			while(reader.hasNext()) {
-				String line = reader.next();
+				String line = reader.nextLine();
 				if (line.charAt(0) == '0') {
 					if (line.charAt(2) == '0') {
 						addSequential(new DriveXFeetMotionMagic(Double.parseDouble(line.substring(4))));
