@@ -40,8 +40,8 @@ public class RunCollectorForward extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-    	Robot.collector.setOutput(.05);
-    	Robot.reverseCollector.setOutput(.05);
+    	Robot.collector.setOutput(.37);
+    	Robot.reverseCollector.setOutput(.37);
     	Robot.collector.enable();
     	Robot.reverseCollector.enable();
     }
