@@ -54,7 +54,8 @@ public class RunCollectorForward extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return Robot.cubeSensor.getCube() || !Robot.oi.buttonBox.getRawButton(10);
+        //return Robot.cubeSensor.getCube() || !Robot.oi.buttonBox.getRawButton(10);
+    	return !Robot.oi.buttonBox.getRawButton(10);
     }
 
     // Called once after isFinished returns true

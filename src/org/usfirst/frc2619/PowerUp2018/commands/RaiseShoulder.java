@@ -38,9 +38,9 @@ public class RaiseShoulder extends InstantCommand {
     // Called once when this command runs
     @Override
     protected void initialize() {
-    	if(Robot.elevator.checkLimitSwitches()) {
+    	//if(Robot.elevator.checkLimitSwitches()) {
     		Robot.shoulder.raiseShoulder();
-    	}
+    	//}
     }
 
 }

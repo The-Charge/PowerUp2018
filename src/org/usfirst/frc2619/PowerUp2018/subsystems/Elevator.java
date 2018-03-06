@@ -78,9 +78,11 @@ public class Elevator extends Subsystem {
     	lastValue = counter.get();
     }
     
+    /*
     public boolean canMove() {
     	return !Robot.shoulder.getIsHigh();
     }
+    */
     
     private void setPow(double pow) {
     	count();
@@ -89,23 +91,23 @@ public class Elevator extends Subsystem {
     }
 
     public void runMotorFwd() {
-    	if(canMove()) {
+    	//if(canMove()) {
 	    	count();
 	    	setPow(-MOTOR_POW);
 	    	wasForward = true;
-    	}
+    	//}
     }
     
     public void runMotorRev() {
-    	if(canMove()) {
+    	//if(canMove()) {
 	    	count();
 	    	setPow(MOTOR_POW);
 	    	wasForward = false;
-    	}
+    	//}
     }
     
     public void powToTarget(int target) {
-    	if(canMove()) {
+    	//if(canMove()) {
 	    	count();
 	    	if (target == 0) 
 	    		runMotorRev();
@@ -113,7 +115,7 @@ public class Elevator extends Subsystem {
 	    		runMotorRev();
 	    	else 
 	    		runMotorFwd();
-    	}
+    	//}
     }
     
     public void currentLimiting() {
@@ -123,12 +125,14 @@ public class Elevator extends Subsystem {
 		followerMotor.enableCurrentLimit(true);
 	}
     
+    
     public void upToZero() {
-    	if(canMove()) {
+    	//if(canMove()) {
 	    	setPow(-MOTOR_POW);
 	    	wasForward = true;
-    	}
+    	//}
     }
+	
 
     private boolean isForward() {
     	return (motor.get() < 0);
@@ -181,9 +185,9 @@ public class Elevator extends Subsystem {
     }
     
     public void brakeOff() {
-    	if(Robot.elevator.canMove()) {
+    	//if(Robot.elevator.canMove()) {
     		brakes.set(true);
-    	}
+    	//}
     }
     
     public void stop() {
