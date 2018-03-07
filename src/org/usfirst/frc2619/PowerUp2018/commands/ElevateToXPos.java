@@ -40,6 +40,7 @@ public class ElevateToXPos extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+    		this.setTimeout(0.25);
 	    	Robot.elevator.brakeOff();
 	    	Robot.elevator.powToTarget(m_target);
 	    	Robot.elevator.currentLimiting();
@@ -54,7 +55,7 @@ public class ElevateToXPos extends Command {
     @Override
     protected boolean isFinished() {
         //return (!Robot.elevator.canMove() || Robot.elevator.isPastTarget(m_target) || Robot.elevator.checkLimitSwitches());
-    	return (Robot.elevator.isPastTarget(m_target) || Robot.elevator.checkLimitSwitches());
+    	return Robot.elevator.isPastTarget(m_target) || (Robot.elevator.checkLimitSwitches() && isTimedOut());
     }
 
     // Called once after isFinished returns true
