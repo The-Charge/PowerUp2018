@@ -57,12 +57,12 @@ public class Shoulder extends Subsystem {
     // here. Call these from Commands.
     
     public void raiseShoulder() {
-    	doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
+    	doubleSolenoid.set(DoubleSolenoid.Value.kForward);
 		isHigh = true;
 	}
 
 	public void lowerShoulder() {
-		doubleSolenoid.set(DoubleSolenoid.Value.kForward);
+		doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
 		isHigh = false;
 	}
 	

@@ -61,14 +61,14 @@ public class DriveTrain extends Subsystem {
 	private static final double ELEVATOR_POS_FIVE = 0.10;
 	
 	private final int MAX_TICKS_PER_SECOND = 8691;
-    public final double TICKS_PER_FOOT = 4420;
+    public final double TICKS_PER_FOOT = 4320;
     
     public double MotionMagicP = 2;
     public double MotionMagicI = 0.001;
     public double MotionMagicD = 0;
     public double MotionMagicF = 0.72;
-    public int MotionMagicAcceleration = 4000;
-    public int MotionMagicVelocity = 11000;
+    public int MotionMagicAcceleration = 2000;
+    public int MotionMagicVelocity = 6000;
     public int MotionMagicPIDIndex = 0;
     public int MotionMagicPIDSlot = 0;
     public double MotionMagicDistance;
