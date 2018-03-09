@@ -64,7 +64,7 @@ public class AutonomousTextRightRight extends CommandGroup {
 							addSequential(new DriveXFeetMotionMagic(Double.parseDouble(line.substring(4))));
 						}
 						else if (line.charAt(2) == '2') {
-							addSequential(new RunCollectorReverse(.05));
+							addSequential(new RunCollectorReverse(.37));
 						}
 						else if (line.charAt(2) == '3') {
 							if (line.charAt(4) == '1') {
@@ -79,17 +79,19 @@ public class AutonomousTextRightRight extends CommandGroup {
 						
 						}
 						else {
-							//addSequential(new WaitNSeconds(Double.parseDouble(line.substring(4))));
+							addSequential(new WaitNSeconds(Double.parseDouble(line.substring(4))));
 						}
 					}
 					else {
 						if (line.charAt(4) == '2') {
-							addSequential(new LowerShoulder());
-							addParallel(new ElevateToXPos(2));
+					    	addParallel(new BrakeOff());
+					    	addSequential(new LowerShoulder());
+							addSequential(new ElevateToXPos(1));
 						}
 						else {
-							addSequential(new LowerShoulder());
-							addParallel(new ElevateToXPos(5));
+					    	addParallel(new BrakeOff());
+					    	addSequential(new LowerShoulder());
+							addParallel(new ElevateToXPos(4));
 						}
 					}
 				}

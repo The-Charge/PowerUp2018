@@ -79,17 +79,19 @@ public class AutonomousTextLeftLeft extends CommandGroup {
 						
 						}
 						else {
-							//addSequential(new WaitNSeconds(Double.parseDouble(line.substring(4))));
+							addSequential(new WaitNSeconds(Double.parseDouble(line.substring(4))));
 						}
 					}
 					else {
 						if (line.charAt(4) == '2') {
-							addSequential(new LowerShoulder());
-							addParallel(new ElevateToXPos(2));
+					    	addParallel(new BrakeOff());
+					    	addSequential(new LowerShoulder());
+							addSequential(new ElevateToXPos(1));
 						}
 						else {
-							addSequential(new LowerShoulder());
-							addParallel(new ElevateToXPos(5));
+					    	addParallel(new BrakeOff());
+					    	addSequential(new LowerShoulder());
+							addParallel(new ElevateToXPos(4));
 						}
 					}
 				}

@@ -56,9 +56,8 @@ public class DriveTrain extends Subsystem {
 	public double speedF = SPEED_F_CONSTANT;
 	
 	//Change after testing
+	private static final double ELEVATOR_POS_TWO = 0.75;
 	private static final double ELEVATOR_POS_THREE = 0.50;
-	private static final double ELEVATOR_POS_FOUR = 0.25;
-	private static final double ELEVATOR_POS_FIVE = 0.10;
 	
 	private final int MAX_TICKS_PER_SECOND = 8691;
     public final double TICKS_PER_FOOT = 4320;
@@ -118,31 +117,23 @@ public class DriveTrain extends Subsystem {
     	
     	if (speedOverriden) {
 	    	if (Robot.elevator.wasForward) {
-	    		if (Robot.elevator.getElevatorPos() == 3) {
+	    		if (Robot.elevator.getElevatorPos() == 2) {
+	    			leftSpeed = l * ELEVATOR_POS_TWO;
+	    			rightSpeed = r * ELEVATOR_POS_TWO;
+	    		}
+	    		else if (Robot.elevator.getElevatorPos() == 3) {
 	    			leftSpeed = l * ELEVATOR_POS_THREE;
 	    			rightSpeed = r * ELEVATOR_POS_THREE;
-	    		}
-	    		else if (Robot.elevator.getElevatorPos() == 4) {
-	    			leftSpeed = l * ELEVATOR_POS_FOUR;
-	    			rightSpeed = r * ELEVATOR_POS_FOUR;    	
-	    		}
-	    		else if (Robot.elevator.getElevatorPos() == 5) {
-	    			leftSpeed = l * ELEVATOR_POS_FIVE;
-	    			rightSpeed = r * ELEVATOR_POS_FIVE;
 	    		}
 	    	}
 	    	else if (!Robot.elevator.wasForward) {
-	    		if (Robot.elevator.getElevatorPos() == 2) {
+	    		if (Robot.elevator.getElevatorPos() == 1) {
+	    			leftSpeed = l * ELEVATOR_POS_TWO;
+	    			rightSpeed = r * ELEVATOR_POS_TWO;
+	    		}
+	    		else if (Robot.elevator.getElevatorPos() == 2) {
 	    			leftSpeed = l * ELEVATOR_POS_THREE;
 	    			rightSpeed = r * ELEVATOR_POS_THREE;
-	    		}
-	    		else if (Robot.elevator.getElevatorPos() == 3) {
-	    			leftSpeed = l * ELEVATOR_POS_FOUR;
-	    			rightSpeed = r * ELEVATOR_POS_FOUR;    	
-	    		}
-	    		else if (Robot.elevator.getElevatorPos() == 4) {
-	    			leftSpeed = l * ELEVATOR_POS_FIVE;
-	    			rightSpeed = r * ELEVATOR_POS_FIVE;
 	    		}
 	    	}
     	}
@@ -246,6 +237,10 @@ public class DriveTrain extends Subsystem {
     
     public double getYaw() {
     	return ahrs.getYaw();
+    }
+    
+    public void writeDashboardValues() {
+    	SmartDashboard.putBoolean("Inverted",isReversed);
     }
 }
 
