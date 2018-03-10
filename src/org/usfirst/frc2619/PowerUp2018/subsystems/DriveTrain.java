@@ -81,7 +81,7 @@ public class DriveTrain extends Subsystem {
     
     public boolean isReversed = false;
     public boolean driveLocked = false;
-    public boolean speedOverriden = true;
+    public boolean speedOverriden = false;
     
     @Override
     public void initDefaultCommand() {
@@ -116,17 +116,19 @@ public class DriveTrain extends Subsystem {
     	double rightSpeed = r;
     	
     	if (speedOverriden) {
-	    	if (Robot.elevator.wasForward) {
-	    		if (Robot.elevator.getElevatorPos() == 2) {
+	    	//if (Robot.elevator.wasForward) {
+	    		/*if (Robot.elevator.getElevatorPos() == 2) {
 	    			leftSpeed = l * ELEVATOR_POS_TWO;
 	    			rightSpeed = r * ELEVATOR_POS_TWO;
 	    		}
 	    		else if (Robot.elevator.getElevatorPos() == 3) {
 	    			leftSpeed = l * ELEVATOR_POS_THREE;
 	    			rightSpeed = r * ELEVATOR_POS_THREE;
-	    		}
-	    	}
-	    	else if (!Robot.elevator.wasForward) {
+	    		}*/ 
+	    		leftSpeed = l *.25;
+	    		rightSpeed = r *.25;
+	    	//}
+	    	/*else if (!Robot.elevator.wasForward) {
 	    		if (Robot.elevator.getElevatorPos() == 1) {
 	    			leftSpeed = l * ELEVATOR_POS_TWO;
 	    			rightSpeed = r * ELEVATOR_POS_TWO;
@@ -135,7 +137,7 @@ public class DriveTrain extends Subsystem {
 	    			leftSpeed = l * ELEVATOR_POS_THREE;
 	    			rightSpeed = r * ELEVATOR_POS_THREE;
 	    		}
-	    	}
+	    	}*/
     	}
     	if (driveLocked) {
 			double avSpeed = (leftSpeed + rightSpeed) / 2.0;

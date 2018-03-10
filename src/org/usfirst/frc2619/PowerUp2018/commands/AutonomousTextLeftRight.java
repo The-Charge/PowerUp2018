@@ -88,8 +88,7 @@ public class AutonomousTextLeftRight extends CommandGroup {
 						if (line.charAt(4) == '2') {
 					    	addParallel(new BrakeOff());
 					    	addSequential(new LowerShoulder());
-							addSequential(new ElevateToXPos(1));
-						}
+					    	addSequential(new ElevateXSeconds(0.8));						}
 						else {
 					    	addParallel(new BrakeOff());
 					    	addSequential(new LowerShoulder());

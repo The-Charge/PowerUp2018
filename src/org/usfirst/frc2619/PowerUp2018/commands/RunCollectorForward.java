@@ -40,8 +40,8 @@ public class RunCollectorForward extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-    	Robot.collector.setOutput(.37);
-    	Robot.reverseCollector.setOutput(.37);
+    	Robot.collector.setOutput(.5);
+    	Robot.reverseCollector.setOutput(.5);
     	Robot.collector.enable();
     	Robot.reverseCollector.enable();
     }
@@ -54,8 +54,8 @@ public class RunCollectorForward extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return Robot.cubeSensor.getCube() || !Robot.oi.buttonBox.getRawButton(10);
-    	//return !Robot.oi.buttonBox.getRawButton(10);
+        //return Robot.cubeSensor.getCube() || !Robot.oi.buttonBox.getRawButton(2);
+    	return !Robot.oi.buttonBox.getRawButton(2) && !Robot.oi.buttonBox.getRawButton(8);
     }
 
     // Called once after isFinished returns true

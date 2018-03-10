@@ -39,7 +39,9 @@ public class LowerShoulder extends InstantCommand {
     @Override
     protected void initialize() {
     	//if(Robot.elevator.checkLimitSwitches()) {
-    		Robot.shoulder.lowerShoulder();
+    	if (Robot.elevator.checkBottomLimitSwitch())
+    		Robot.elevator.brakeOff();
+    	Robot.shoulder.lowerShoulder();
     	//}
     }
 
