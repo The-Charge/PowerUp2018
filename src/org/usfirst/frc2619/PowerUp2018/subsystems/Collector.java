@@ -108,4 +108,11 @@ public class Collector extends PIDSubsystem {
     public void writeDashboardValues() {
     	SmartDashboard.putNumber("SetPoint", returnPIDInput());
     }
+    
+    public boolean getIn(double speed) {
+    	if(speed >= 0)
+    		return true;
+    	else
+    		return false;
+    }
 }

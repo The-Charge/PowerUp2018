@@ -51,12 +51,11 @@ public class StationThreeLeftScale extends CommandGroup {
     	addSequential(new ShiftLow());
     	addSequential(new DriveXFeetMotionMagic(17.75));
      	addSequential(new TurnNDegreesAbsolutePID(-90));
-     	addSequential(new DriveXFeetMotionMagic(16.5));
+     	addParallel(new DriveXFeetMotionMagic(16.5));
     	addSequential(new LowerShoulder());
-     	addSequential(new TurnNDegreesAbsolutePID(0));
-    	//addParallel(new BrakeOff());
+     	addParallel(new TurnNDegreesAbsolutePID(0));
      	addSequential(new ElevateToXPos(4));
      	addSequential(new DriveToCurrent(.07, 1));
-    	addSequential(new RunCollectorReverse(0.37));
+    	addSequential(new RunCollector(-.5));
     } 
 }
