@@ -881,7 +881,7 @@ Children:
           validators: null
           value:
           - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: speed,
-            type: double, value: '-.5'}
+            type: double, value: '-0.5'}
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id016
           default: '1'
@@ -893,7 +893,7 @@ Children:
           name: Command
           type: Command
           validators: *id017
-          value: RunCollectorReverse
+          value: RunCollector
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id018
           default: whileHeld
@@ -970,7 +970,7 @@ Children:
           validators: null
           value:
           - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: speed,
-            type: double, value: '-.25'}
+            type: double, value: '-0.37'}
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id016
           default: '1'
@@ -982,7 +982,7 @@ Children:
           name: Command
           type: Command
           validators: *id017
-          value: RunCollectorReverse
+          value: RunCollector
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id018
           default: whileHeld
@@ -1609,59 +1609,6 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Instant Command
     Name: RaiseShoulder
-  - Children: []
-    Properties:
-      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Autonomous Selection, validators: null, value: false}
-      Parameters: !!robotbuilder.data.properties.ParametersProperty
-        default: []
-        name: Parameters
-        validators: null
-        value: []
-      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Run When Disabled, validators: null, value: false}
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Collector}
-      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: []
-        name: Parameter presets
-        validators: null
-        value: []
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-    Base: Command
-    Name: RunCollectorForward
-  - Children: []
-    Properties:
-      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Autonomous Selection, validators: null, value: false}
-      Parameters: !!robotbuilder.data.properties.ParametersProperty
-        default: []
-        name: Parameters
-        validators: null
-        value:
-        - !!robotbuilder.data.properties.ParameterDescriptor {name: speed, type: double}
-      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Run When Disabled, validators: null, value: false}
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Collector}
-      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: []
-        name: Parameter presets
-        validators: null
-        value:
-        - !!robotbuilder.data.properties.ParameterSet
-          name: fast
-          parameters:
-          - {name: speed, type: double, value: '-.37'}
-        - !!robotbuilder.data.properties.ParameterSet
-          name: slow
-          parameters:
-          - {name: speed, type: double, value: '-.20'}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-    Base: Command
-    Name: RunCollectorReverse
   - Children: []
     Properties:
       Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
@@ -2679,11 +2626,46 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Instant Command
     Name: StopCollector
+  - Children: []
+    Properties:
+      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Autonomous Selection, validators: null, value: false}
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value:
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: speed, type: double}
+      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Run When Disabled, validators: null, value: false}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Collector}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: []
+        name: Parameter presets
+        validators: null
+        value:
+        - !!robotbuilder.data.properties.ParameterSet
+          name: Forward
+          parameters:
+          - {name: speed, type: double, value: '0.5'}
+        - !!robotbuilder.data.properties.ParameterSet
+          name: ReverseFast
+          parameters:
+          - {name: speed, type: double, value: '-0.5'}
+        - !!robotbuilder.data.properties.ParameterSet
+          name: ReverseSlow
+          parameters:
+          - {name: speed, type: double, value: '-0.37'}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: RunCollector
   Properties: {}
   Base: Commands
   Name: Commands
 Properties:
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Laptop1\workspace',
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\jrkli\workspace',
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\workspace'}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
@@ -2702,7 +2684,7 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Laptop1\',
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\jrkli\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\workspace\PlyBot2018'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}

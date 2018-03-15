@@ -64,7 +64,7 @@ public class AutonomousTextLeftLeft extends CommandGroup {
 							addSequential(new DriveXFeetMotionMagic(Double.parseDouble(line.substring(4))));
 						}
 						else if (line.charAt(2) == '2') {
-							addSequential(new RunCollectorReverse(.37));
+							addSequential(new RunCollector(-.37));
 						}
 						else if (line.charAt(2) == '3') {
 							if (line.charAt(4) == '1') {
