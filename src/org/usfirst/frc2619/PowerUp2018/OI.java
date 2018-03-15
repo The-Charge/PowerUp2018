@@ -62,9 +62,6 @@ public class OI {
     public JoystickButton openClawBtn;
     public JoystickButton closeClawBtn;
     public JoystickButton elevateToZeroBtn;
-    public JoystickButton elevateToOneBtn;
-    public JoystickButton elevateToTwoBtn;
-    public JoystickButton elevateToThreeBtn;
     public JoystickButton elevateToFourBtn;
     public JoystickButton runCollectorReverseFastBtn;
     public JoystickButton runCollectorForwardBtn;
@@ -74,10 +71,6 @@ public class OI {
     public JoystickButton overrideDownBtn;
     public JoystickButton raiseShoulderBtn;
     public JoystickButton lowerShoulderBtn;
-    public JoystickButton clawAndCollectorBtn;
-    public JoystickButton timedSwitchBtn;
-    public JoystickButton overrideIRBtn;
-    public JoystickButton releaseOverrideIR;
     public JoystickButton raiseElevatorAndShoulderBtn;
     public JoystickButton lowerShoulderAndCollectBtn;
     public JoystickButton raiseShoulderAndStopCollectBtn;
@@ -96,14 +89,6 @@ public class OI {
         lowerShoulderAndCollectBtn.whenPressed(new LowerShoulderAndCollect());
         raiseElevatorAndShoulderBtn = new JoystickButton(buttonBox, 7);
         raiseElevatorAndShoulderBtn.whenPressed(new RaiseElevatorAndShoulder());
-        releaseOverrideIR = new JoystickButton(buttonBox, 32);
-        releaseOverrideIR.whenReleased(new OverrideIR());
-        overrideIRBtn = new JoystickButton(buttonBox, 32);
-        overrideIRBtn.whenPressed(new OverrideIR());
-        timedSwitchBtn = new JoystickButton(buttonBox, 32);
-        timedSwitchBtn.whenPressed(new ElevateXSeconds(.8));
-        clawAndCollectorBtn = new JoystickButton(buttonBox, 32);
-        clawAndCollectorBtn.whileHeld(new ClawAndCollector());
         lowerShoulderBtn = new JoystickButton(buttonBox, 3);
         lowerShoulderBtn.whenReleased(new LowerShoulder());
         raiseShoulderBtn = new JoystickButton(buttonBox, 5);
@@ -122,12 +107,6 @@ public class OI {
         runCollectorReverseFastBtn.whileHeld(new RunCollector(-0.5));
         elevateToFourBtn = new JoystickButton(buttonBox, 11);
         elevateToFourBtn.whenPressed(new ElevateToXPos(4));
-        elevateToThreeBtn = new JoystickButton(buttonBox, 32);
-        elevateToThreeBtn.whenPressed(new ElevateToXPos(3));
-        elevateToTwoBtn = new JoystickButton(buttonBox, 32);
-        elevateToTwoBtn.whenPressed(new ElevateToXPos(2));
-        elevateToOneBtn = new JoystickButton(buttonBox, 32);
-        elevateToOneBtn.whenPressed(new ElevateToXPos(1));
         elevateToZeroBtn = new JoystickButton(buttonBox, 12);
         elevateToZeroBtn.whenPressed(new ElevateToXPos(0));
         closeClawBtn = new JoystickButton(buttonBox, 9);
