@@ -19,7 +19,6 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.GearTooth;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.Solenoid;
 
@@ -42,7 +41,6 @@ public class RobotMap {
     public static Solenoid shiftersSolenoid;
     public static Solenoid clawSolenoid;
     public static WPI_TalonSRX elevatorMotor;
-    public static GearTooth elevatorCounter;
     public static WPI_TalonSRX elevatorFollowerMotor;
     public static Solenoid elevatorBrakes;
     public static Encoder collectorEncoder;
@@ -83,9 +81,6 @@ public class RobotMap {
         
         elevatorMotor = new WPI_TalonSRX(5);
         
-        
-        elevatorCounter = new GearTooth(4, false);
-        LiveWindow.addSensor("Elevator", "Counter", elevatorCounter);
         
         elevatorFollowerMotor = new WPI_TalonSRX(4);
         
