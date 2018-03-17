@@ -53,7 +53,6 @@ public class AutonomousTextLeftRight extends CommandGroup {
  
     	boolean fileRead = false;
     	addSequential(new ShiftLow());
-    	addSequential(new StartElevator());
     	try {
     		File fi = new File("/home/lvuser/pygameLR.txt");
 			Scanner reader = new Scanner(new FileReader(fi));
@@ -92,7 +91,7 @@ public class AutonomousTextLeftRight extends CommandGroup {
 						else {
 					    	addParallel(new BrakeOff());
 					    	addSequential(new LowerShoulder());
-							addParallel(new ElevateToXPos(4));
+							//addParallel(new ElevateToXPos(4));
 						}
 					}
 				}

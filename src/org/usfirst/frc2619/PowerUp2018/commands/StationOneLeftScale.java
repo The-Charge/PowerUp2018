@@ -52,7 +52,7 @@ public class StationOneLeftScale extends CommandGroup {
     	addParallel(new DriveXFeetMotionMagic(25));
     	addSequential(new LowerShoulder());
     	addParallel(new TurnNDegreesAbsolutePID(90));
-    	addSequential(new ElevateToXPos(4));
+    	//addSequential(new ElevateToXPos(4));
     	addSequential(new DriveToCurrent(.07, 1));
     	addSequential(new RunCollector(-.5));
  

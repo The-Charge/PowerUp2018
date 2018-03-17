@@ -49,7 +49,7 @@ public class StationOneRightScale extends CommandGroup {
      	addParallel(new DriveXFeetMotionMagic(16.5));
     	addSequential(new LowerShoulder());
      	addParallel(new TurnNDegreesAbsolutePID(0));
-     	addSequential(new ElevateToXPos(4));
+     	//addSequential(new ElevateToXPos(4));
      	addSequential(new DriveToCurrent(.07, 1));
     	addSequential(new RunCollector(-.5));
     } 
