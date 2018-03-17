@@ -60,6 +60,7 @@ public class OverrideElevator extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+    	Robot.elevator.stopClosedloopRamp();
     	Robot.elevator.stop();
     }
 
@@ -67,6 +68,5 @@ public class OverrideElevator extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
-    	end();
     }
 }
