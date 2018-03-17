@@ -146,6 +146,7 @@ public class Robot extends TimedRobot {
         driveTrain.writeDashboardValues();
         shifters.writeDashboardValues();
         elevator.writeDashboardDebugValues();
+        elevator.writeDashboardValues();
 		elevator.readDashboardControlValues();
     }
 }
