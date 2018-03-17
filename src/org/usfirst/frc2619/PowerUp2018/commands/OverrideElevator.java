@@ -40,6 +40,7 @@ public class OverrideElevator extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+    	Robot.elevator.initSpeedPercentageMode();
     	this.setTimeout(0.25);
 	    Robot.elevator.brakeOff();
 	    Robot.elevator.set(m_speed);
