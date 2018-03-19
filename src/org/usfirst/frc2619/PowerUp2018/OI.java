@@ -100,7 +100,7 @@ public class OI {
         overrideUpBtn = new JoystickButton(buttonBox, 6);
         overrideUpBtn.whenPressed(new OverrideElevator(0.5));
         runCollectorReverseSlowBtn = new JoystickButton(buttonBox, 5);
-        runCollectorReverseSlowBtn.whileHeld(new RunCollector(-0.37));
+        runCollectorReverseSlowBtn.whenPressed(new RunCollector(-0.37));
         stopCollectorBtn = new JoystickButton(buttonBox, 2);
         stopCollectorBtn.whenReleased(new StopCollector());
         closeClawBtn = new JoystickButton(buttonBox, 9);
@@ -112,7 +112,7 @@ public class OI {
         lowerShoulderAndCollectBtn = new JoystickButton(buttonBox, 2);
         lowerShoulderAndCollectBtn.whenPressed(new LowerShoulderAndCollect());
         runCollectorReverseFastBtn = new JoystickButton(buttonBox, 1);
-        runCollectorReverseFastBtn.whileHeld(new RunCollector(-0.5));
+        runCollectorReverseFastBtn.whenPressed(new RunCollector(-0.5));
         rightJoystick = new Joystick(1);
         
         shiftHighBtn = new JoystickButton(rightJoystick, 6);

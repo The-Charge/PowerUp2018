@@ -60,9 +60,9 @@ public class RunCollector extends Command {
     @Override
     protected boolean isFinished() {
     	if (in)
-    		return Robot.cubeSensor.getCube() || (!Robot.oi.buttonBox.getRawButton(8));
+    		return Robot.cubeSensor.getCube() || (!Robot.oi.buttonBox.getRawButton(2));
     	else
-    		return this.isTimedOut() && (!Robot.oi.buttonBox.getRawButton(1));
+    		return this.isTimedOut() && (!Robot.oi.buttonBox.getRawButton(1) && !Robot.oi.buttonBox.getRawButton(5));
     }
 
     // Called once after isFinished returns true
