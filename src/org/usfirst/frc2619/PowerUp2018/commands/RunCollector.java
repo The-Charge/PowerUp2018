@@ -59,10 +59,10 @@ public class RunCollector extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-    	if(in)
-    		return Robot.cubeSensor.getCube() || (!Robot.oi.buttonBox.getRawButton(2) && !Robot.oi.buttonBox.getRawButton(8));
+    	if (in)
+    		return Robot.cubeSensor.getCube() || (!Robot.oi.buttonBox.getRawButton(8));
     	else
-    		return this.isTimedOut() || (!Robot.oi.buttonBox.getRawButton(1) && !Robot.oi.buttonBox.getRawButton(10));
+    		return this.isTimedOut() && (!Robot.oi.buttonBox.getRawButton(1));
     }
 
     // Called once after isFinished returns true
