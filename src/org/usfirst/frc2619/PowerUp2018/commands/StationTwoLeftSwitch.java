@@ -57,5 +57,10 @@ public class StationTwoLeftSwitch extends CommandGroup {
     	addParallel(new ElevateXSeconds(0.8));
     	addSequential(new DriveToCurrent(.2, 3));
     	addSequential(new RunCollector(-.5)); 
+    	addParallel(new DriveXFeetMotionMagic(-2));
+    	addSequential(new ElevateToXPositionMotionMagic(0));
+    	addSequential(new TurnNDegreesAbsolutePID(-90));
+    	addParallel(new RunCollector(.5));
+    	addSequential(new DriveToCurrent(.2, 2));
     } 
 }
