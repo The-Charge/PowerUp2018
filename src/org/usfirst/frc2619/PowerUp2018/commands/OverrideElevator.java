@@ -41,7 +41,7 @@ public class OverrideElevator extends Command {
     @Override
     protected void initialize() {
     	Robot.elevator.initSpeedPercentageMode();
-    	this.setTimeout(0.25);
+    	this.setTimeout(2);
 	    Robot.elevator.brakeOff();
 	    Robot.elevator.set(m_speed);
     }
