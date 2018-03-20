@@ -41,7 +41,6 @@ public class RobotMap {
     public static Solenoid shiftersSolenoid;
     public static Solenoid clawSolenoid;
     public static WPI_TalonSRX elevatorMotor;
-    public static WPI_TalonSRX elevatorFollowerMotor;
     public static Solenoid elevatorBrakes;
     public static Encoder collectorEncoder;
     public static WPI_TalonSRX collectorMotor;
@@ -82,9 +81,6 @@ public class RobotMap {
         elevatorMotor = new WPI_TalonSRX(5);
         
         
-        elevatorFollowerMotor = new WPI_TalonSRX(4);
-        
-        
         elevatorBrakes = new Solenoid(0, 1);
         LiveWindow.addActuator("Elevator", "Brakes", elevatorBrakes);
         
@@ -114,7 +110,6 @@ public class RobotMap {
         driveTrainRightRearMotor.follow(driveTrainRightFrontMotor);
         //elevatorMotor.setInverted(true);
         //elevatorFollowerMotor.setInverted(true);
-        elevatorFollowerMotor.follow(elevatorMotor);
         driveTrainRightFrontMotor.setInverted(true);
         driveTrainRightRearMotor.setInverted(true);
         reverseCollectorMotor.setInverted(true);

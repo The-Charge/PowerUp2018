@@ -55,7 +55,7 @@ public class StationOneRightSwitch extends CommandGroup {
     	addParallel(new LowerShoulder());
      	addSequential(new TurnNDegreesAbsolutePID(180));
     	addSequential(new ElevateToXPositionMotionMagic(.3));
-    	addSequential(new DriveToCurrent(.2, 3));
+    	addSequential(new DriveToCurrent(.2, 5));
     	addSequential(new RunCollector(-.5));
     	addParallel(new RaiseShoulder());
     	addSequential(new DriveXFeetMotionMagic(-2));
