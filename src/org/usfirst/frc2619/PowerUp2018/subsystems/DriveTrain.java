@@ -66,8 +66,8 @@ public class DriveTrain extends Subsystem {
     public double MotionMagicI = 0.001;
     public double MotionMagicD = 0;
     public double MotionMagicF = 0.72;
-    public int MotionMagicAcceleration = 2000;
-    public int MotionMagicVelocity = 6000;
+    public int MotionMagicAcceleration = 2500;
+    public int MotionMagicVelocity = 8000;
     public int MotionMagicPIDIndex = 0;
     public int MotionMagicPIDSlot = 0;
     public double MotionMagicDistance;
@@ -196,6 +196,38 @@ public class DriveTrain extends Subsystem {
     	
     	rightFrontMotor.configMotionAcceleration(MotionMagicAcceleration, RobotMap.TIMEOUT_MS);
     	rightFrontMotor.configMotionCruiseVelocity(MotionMagicVelocity, RobotMap.TIMEOUT_MS);
+    	
+    	leftFrontMotor.setSelectedSensorPosition(0, MotionMagicPIDIndex, RobotMap.TIMEOUT_MS);
+    	rightFrontMotor.setSelectedSensorPosition(0, MotionMagicPIDIndex, RobotMap.TIMEOUT_MS);
+    	
+    	MotionMagicDistance *= TICKS_PER_FOOT;
+    	leftFrontMotor.set(ControlMode.MotionMagic, MotionMagicDistance);
+    	rightFrontMotor.set(ControlMode.MotionMagic, MotionMagicDistance);
+    }
+    
+    public void MotionMagicInit(double distance, int backVelocity, int backAcceleration) {
+    	MotionMagicDistance = distance;
+    	leftFrontMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, MotionMagicPIDIndex, RobotMap.TIMEOUT_MS);
+    	rightFrontMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, MotionMagicPIDIndex, RobotMap.TIMEOUT_MS);
+    	
+    	leftFrontMotor.selectProfileSlot(MotionMagicPIDSlot, MotionMagicPIDIndex);
+    	rightFrontMotor.selectProfileSlot(MotionMagicPIDSlot, MotionMagicPIDIndex);
+    	
+    	leftFrontMotor.config_kP(0, MotionMagicP, RobotMap.TIMEOUT_MS);
+    	leftFrontMotor.config_kI(0, MotionMagicI, RobotMap.TIMEOUT_MS);
+    	leftFrontMotor.config_kD(0, MotionMagicD, RobotMap.TIMEOUT_MS);
+    	leftFrontMotor.config_kF(0, MotionMagicF, RobotMap.TIMEOUT_MS);
+    	
+    	rightFrontMotor.config_kP(0, MotionMagicP, RobotMap.TIMEOUT_MS);
+    	rightFrontMotor.config_kI(0, MotionMagicI, RobotMap.TIMEOUT_MS);
+    	rightFrontMotor.config_kD(0, MotionMagicD, RobotMap.TIMEOUT_MS);
+    	rightFrontMotor.config_kF(0, MotionMagicF, RobotMap.TIMEOUT_MS);
+    	
+    	leftFrontMotor.configMotionAcceleration(backAcceleration, RobotMap.TIMEOUT_MS);
+    	leftFrontMotor.configMotionCruiseVelocity(backVelocity, RobotMap.TIMEOUT_MS);
+    	
+    	rightFrontMotor.configMotionAcceleration(backAcceleration, RobotMap.TIMEOUT_MS);
+    	rightFrontMotor.configMotionCruiseVelocity(backVelocity, RobotMap.TIMEOUT_MS);
     	
     	leftFrontMotor.setSelectedSensorPosition(0, MotionMagicPIDIndex, RobotMap.TIMEOUT_MS);
     	rightFrontMotor.setSelectedSensorPosition(0, MotionMagicPIDIndex, RobotMap.TIMEOUT_MS);
