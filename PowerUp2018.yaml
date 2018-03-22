@@ -512,7 +512,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '5'
+          value: '1'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -524,7 +524,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whenPressed
+          value: whileHeld
       Base: Joystick Button
       Name: overrideSpeedHalfBtn
     Properties:
@@ -849,7 +849,7 @@ Children:
           validators: null
           value:
           - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: speed,
-            type: double, value: '-0.37'}
+            type: double, value: '-0.25'}
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id016
           default: '1'
@@ -2480,13 +2480,13 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: None}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: []
+        default: &id022 []
         name: Parameter presets
         validators: null
-        value: []
+        value: *id022
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-    Base: Instant Command
+    Base: Command
     Name: OverrideSpeedHalf
   Properties: {}
   Base: Commands

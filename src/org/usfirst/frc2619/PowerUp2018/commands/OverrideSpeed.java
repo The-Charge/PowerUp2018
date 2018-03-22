@@ -37,6 +37,8 @@ public class OverrideSpeed extends InstantCommand {
     // Called once when this command runs
     @Override
     protected void initialize() {
+    	if (Robot.driveTrain.halfSpeed)
+    		Robot.driveTrain.halfSpeed = false;
     	if (Robot.driveTrain.quarterSpeed) {
 			Robot.driveTrain.quarterSpeed = false;
 		} 

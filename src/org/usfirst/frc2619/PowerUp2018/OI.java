@@ -104,7 +104,7 @@ public class OI {
         overrideUpBtn = new JoystickButton(buttonBox, 6);
         overrideUpBtn.whenPressed(new OverrideElevator(0.5));
         runCollectorReverseSlowBtn = new JoystickButton(buttonBox, 5);
-        runCollectorReverseSlowBtn.whenPressed(new RunCollector(-0.37));
+        runCollectorReverseSlowBtn.whenPressed(new RunCollector(-0.25));
         stopCollectorBtn = new JoystickButton(buttonBox, 2);
         stopCollectorBtn.whenReleased(new StopCollector());
         closeClawBtn = new JoystickButton(buttonBox, 9);
@@ -129,8 +129,8 @@ public class OI {
         invertDriveBtn.whenPressed(new InvertDrive());
         leftJoystick = new Joystick(0);
         
-        overrideSpeedHalfBtn = new JoystickButton(leftJoystick, 5);
-        overrideSpeedHalfBtn.whenPressed(new OverrideSpeedHalf());
+        overrideSpeedHalfBtn = new JoystickButton(leftJoystick, 1);
+        overrideSpeedHalfBtn.whileHeld(new OverrideSpeedHalf());
         overrideSpeedBtn = new JoystickButton(leftJoystick, 6);
         overrideSpeedBtn.whenPressed(new OverrideSpeed());
 
