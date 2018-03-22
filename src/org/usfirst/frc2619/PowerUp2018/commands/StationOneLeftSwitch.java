@@ -57,6 +57,6 @@ public class StationOneLeftSwitch extends CommandGroup {
     	addSequential(new RunCollector(-.5));
     	addParallel(new RaiseShoulder());
     	addSequential(new DriveXFeetMotionMagic(-4));
-    	addSequential(new ElevateToXPositionMotionMagic(0));
+    	addSequential(new ElevateToXPositionMotionMagic(0.13));
     } 
 }

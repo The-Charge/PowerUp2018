@@ -62,10 +62,13 @@ public class CubeSensor extends Subsystem {
     }
     
     public boolean getCube() {
+    	/*
     	if (isIR)
     		return !digitalInput.get();
     	else
     		return false;
+    	*/
+    	return false;
     }
 
 }

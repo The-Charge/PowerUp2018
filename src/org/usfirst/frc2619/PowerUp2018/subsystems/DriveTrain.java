@@ -55,10 +55,6 @@ public class DriveTrain extends Subsystem {
 	public double speedD = SPEED_D_CONSTANT;
 	public double speedF = SPEED_F_CONSTANT;
 	
-	//Change after testing
-	private static final double ELEVATOR_POS_TWO = 0.75;
-	private static final double ELEVATOR_POS_THREE = 0.50;
-	
 	private final int MAX_TICKS_PER_SECOND = 8691;
     public final double TICKS_PER_FOOT = 4320;
     
@@ -81,7 +77,8 @@ public class DriveTrain extends Subsystem {
     
     public boolean isReversed = false;
     public boolean driveLocked = false;
-    public boolean speedOverriden = false;
+    public boolean quarterSpeed = false;
+    public boolean halfSpeed = false;
     
     @Override
     public void initDefaultCommand() {
@@ -115,7 +112,7 @@ public class DriveTrain extends Subsystem {
     	double leftSpeed = l;
     	double rightSpeed = r;
     	
-    	if (speedOverriden) {
+    	if (quarterSpeed) {
 	    	//if (Robot.elevator.wasForward) {
 	    		/*if (Robot.elevator.getElevatorPos() == 2) {
 	    			leftSpeed = l * ELEVATOR_POS_TWO;
@@ -139,6 +136,11 @@ public class DriveTrain extends Subsystem {
 	    		}
 	    	}*/
     	}
+    	else if (halfSpeed) {
+    		leftSpeed = l *.5;
+    		rightSpeed = r *.5;
+    	}
+    		
     	if (driveLocked) {
 			double avSpeed = (leftSpeed + rightSpeed) / 2.0;
 			leftSpeed = avSpeed;
