@@ -66,8 +66,8 @@ public class Climber extends Subsystem {
     }
     
     private void currentLimiting() {
-    	RobotMap.climberMotor.configContinuousCurrentLimit(CURRENT_LIMIT, RobotMap.TIMEOUT_MS);
-    	RobotMap.climberMotor.enableCurrentLimit(true);
+    	motor.configContinuousCurrentLimit(CURRENT_LIMIT, RobotMap.TIMEOUT_MS);
+    	motor.enableCurrentLimit(true);
     }
 
 }
