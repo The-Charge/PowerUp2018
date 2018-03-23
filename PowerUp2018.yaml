@@ -404,7 +404,7 @@ Children:
           default: '0'
           name: Output Channel (Relay)
           validators: [RelayOutput]
-          value: '0'
+          value: '3'
       Base: Spike
       Name: Spike
     Properties:
@@ -887,7 +887,7 @@ Children:
           validators: null
           value:
           - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: speed,
-            type: double, value: '-0.25'}
+            type: double, value: '-0.13'}
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id016
           default: '1'

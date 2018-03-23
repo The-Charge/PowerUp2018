@@ -55,7 +55,7 @@ public class StationOneLeftScale extends CommandGroup {
     	addSequential(new ElevateToXPositionMotionMagic(1));
     	addSequential(new RaiseShoulder());
     	addSequential(new DriveToCurrent(.13, 3));
-    	addSequential(new RunCollector(-.25));
+    	addSequential(new RunCollector(-.15));
     	//addParallel(new RaiseShoulder());
     	addSequential(new DriveXFeetMotionMagic(-4, 6000, 1000));
     	addSequential(new ElevateToXPositionMotionMagic(0.13));

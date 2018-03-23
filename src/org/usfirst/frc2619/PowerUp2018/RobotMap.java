@@ -104,7 +104,7 @@ public class RobotMap {
         cubeSensorDigitalInput = new DigitalInput(7);
         LiveWindow.addSensor("CubeSensor", "DigitalInput", cubeSensorDigitalInput);
         
-        cubeSensorSpike = new Relay(0);
+        cubeSensorSpike = new Relay(3);
         LiveWindow.addActuator("CubeSensor", "Spike", cubeSensorSpike);
         
         shoulderDoubleSolenoid = new DoubleSolenoid(0, 3, 4);

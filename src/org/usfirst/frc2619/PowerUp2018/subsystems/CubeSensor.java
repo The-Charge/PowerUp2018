@@ -66,7 +66,7 @@ public class CubeSensor extends Subsystem {
     	if (!digitalInput.get())
     		spike.set(Relay.Value.kOn);
     	else
-    		spike.set(Relay.Value.kOff);;
+    		spike.set(Relay.Value.kOff);
     }
 
 }
