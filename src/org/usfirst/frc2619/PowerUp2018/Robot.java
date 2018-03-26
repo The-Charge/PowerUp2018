@@ -149,5 +149,6 @@ public class Robot extends TimedRobot {
         shifters.writeDashboardValues();
         elevator.writeDashboardDebugValues();
 		elevator.readDashboardControlValues();
+		SmartDashboard.putBoolean("Moveable:", Robot.elevator.moveable);
     }
 }

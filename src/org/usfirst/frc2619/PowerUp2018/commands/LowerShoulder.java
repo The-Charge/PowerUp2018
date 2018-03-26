@@ -38,6 +38,7 @@ public class LowerShoulder extends InstantCommand {
     // Called once when this command runs
     @Override
     protected void initialize() {
+    	Robot.elevator.moveable = true;
     	//if(Robot.elevator.checkLimitSwitches()) {
     	if (Robot.elevator.checkBottomLimitSwitch())
     		Robot.elevator.brakeOff();

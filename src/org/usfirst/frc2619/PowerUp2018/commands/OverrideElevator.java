@@ -55,7 +55,7 @@ public class OverrideElevator extends Command {
     @Override
     protected boolean isFinished() {
         //return (!Robot.elevator.canMove() || Robot.elevator.checkLimitSwitches());
-        return Robot.elevator.checkLimitSwitches() && isTimedOut();
+        return (Robot.elevator.checkLimitSwitches() && isTimedOut()) || !Robot.elevator.moveable;
     }
 
     // Called once after isFinished returns true

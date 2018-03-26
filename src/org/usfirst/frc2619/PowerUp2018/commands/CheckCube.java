@@ -44,7 +44,6 @@ public class CheckCube extends Command {
     @Override
     protected void execute() {
     	Robot.cubeSensor.checkForCube();
-    	Robot.cubeSensor.getCube();
     }
 
     // Make this return true when this Command no longer needs to run execute()

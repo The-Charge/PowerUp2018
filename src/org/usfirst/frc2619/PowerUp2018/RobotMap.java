@@ -81,7 +81,7 @@ public class RobotMap {
         clawSolenoid = new Solenoid(0, 2);
         LiveWindow.addActuator("Claw", "Solenoid", clawSolenoid);
         
-        elevatorMotor = new WPI_TalonSRX(5);
+        elevatorMotor = new WPI_TalonSRX(9);
         
         
         elevatorBrakes = new Solenoid(0, 1);
@@ -104,7 +104,7 @@ public class RobotMap {
         cubeSensorDigitalInput = new DigitalInput(7);
         LiveWindow.addSensor("CubeSensor", "DigitalInput", cubeSensorDigitalInput);
         
-        cubeSensorSpike = new Relay(3);
+        cubeSensorSpike = new Relay(2);
         LiveWindow.addActuator("CubeSensor", "Spike", cubeSensorSpike);
         
         shoulderDoubleSolenoid = new DoubleSolenoid(0, 3, 4);

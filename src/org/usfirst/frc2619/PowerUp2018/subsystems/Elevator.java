@@ -68,6 +68,8 @@ public class Elevator extends Subsystem {
     public int MotionMagicVelocity = MOTION_MAGIC_VELOCITY_CONSTANT;
     public int MotionMagicAcceleration = MOTION_MAGIC_ACCELERATION_CONSTANT;
     public double MotionMagicDistance;
+    
+    public boolean moveable = false;
 
     @Override
     public void initDefaultCommand() {
@@ -105,7 +107,8 @@ public class Elevator extends Subsystem {
 	}
 	
 	public void set(double percentSpeed) {
-		motor.set(ControlMode.Velocity, MAX_TICKS_PER_SEC * percentSpeed);
+		if (moveable)
+			motor.set(ControlMode.Velocity, MAX_TICKS_PER_SEC * percentSpeed);
 	}
 
 	public void stop() {
@@ -174,7 +177,7 @@ public class Elevator extends Subsystem {
     }
     
     public void resetPosBottom() {
-    	motor.setSelectedSensorPosition(0, 0, RobotMap.TIMEOUT_MS);
+    	//motor.setSelectedSensorPosition(0, 0, RobotMap.TIMEOUT_MS);
     }
     
     public void brakeOn() {
@@ -186,22 +189,24 @@ public class Elevator extends Subsystem {
     }
     
     public void MotionMagicInit(double percentDistance) {
-    	MotionMagicDistance = percentDistance;
-    	motor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, RobotMap.TIMEOUT_MS);
-    	
-    	motor.selectProfileSlot(2,0);
-    	
-    	motor.config_kP(2, MotionMagicP, RobotMap.TIMEOUT_MS);
-    	motor.config_kI(2, MotionMagicI, RobotMap.TIMEOUT_MS);
-    	motor.config_kD(2, MotionMagicD, RobotMap.TIMEOUT_MS);
-    	motor.config_kF(2, MotionMagicF, RobotMap.TIMEOUT_MS);
-    	
-    	
-    	motor.configMotionAcceleration(MotionMagicAcceleration, RobotMap.TIMEOUT_MS);
-    	motor.configMotionCruiseVelocity(MotionMagicVelocity, RobotMap.TIMEOUT_MS);
-    	
-    	MotionMagicDistance *= TICKS_TO_TOP;
-    	motor.set(ControlMode.MotionMagic, MotionMagicDistance);
+    	if (moveable) {
+	    	MotionMagicDistance = percentDistance;
+	    	motor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, RobotMap.TIMEOUT_MS);
+	    	
+	    	motor.selectProfileSlot(2,0);
+	    	
+	    	motor.config_kP(2, MotionMagicP, RobotMap.TIMEOUT_MS);
+	    	motor.config_kI(2, MotionMagicI, RobotMap.TIMEOUT_MS);
+	    	motor.config_kD(2, MotionMagicD, RobotMap.TIMEOUT_MS);
+	    	motor.config_kF(2, MotionMagicF, RobotMap.TIMEOUT_MS);
+	    	
+	    	
+	    	motor.configMotionAcceleration(MotionMagicAcceleration, RobotMap.TIMEOUT_MS);
+	    	motor.configMotionCruiseVelocity(MotionMagicVelocity, RobotMap.TIMEOUT_MS);
+	    	
+	    	MotionMagicDistance *= TICKS_TO_TOP;
+	    	motor.set(ControlMode.MotionMagic, MotionMagicDistance);
+    	}
     }
     
     

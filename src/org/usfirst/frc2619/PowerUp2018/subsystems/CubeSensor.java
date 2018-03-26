@@ -60,11 +60,8 @@ public class CubeSensor extends Subsystem {
     
     public void checkForCube() {
     	SmartDashboard.putBoolean("CubeInRobot:", !digitalInput.get());
-    }
-    
-    public void getCube() {
     	if (!digitalInput.get())
-    		spike.set(Relay.Value.kOn);
+    		spike.set(Relay.Value.kReverse);
     	else
     		spike.set(Relay.Value.kOff);
     }
