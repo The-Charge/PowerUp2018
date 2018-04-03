@@ -209,17 +209,6 @@ public class Elevator extends Subsystem {
     	}
     }
     
-    
-    /*public double configMotionMagicDistance(double percentDistance) {
-    	double currentLocation = motor.getSelectedSensorPosition(0);
-    	double targetLocation = percentDistance* TICKS_TO_TOP;
-    	
-    	if(targetLocation > currentLocation)
-    		return percentDistance;
-    	else
-    		return -percentDistance;
-    }*/
-    
     public boolean isAtPIDDestination() {
 		return (Math.abs(this.motor.getSelectedSensorPosition(0) - MotionMagicDistance) < 500);// || this.leftFrontMotor.getSelectedSensorPosition(MotionMagicPIDIndex) < -MotionMagicDistance + 6000)
 	}

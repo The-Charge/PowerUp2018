@@ -67,6 +67,7 @@ public class DriveTrain extends Subsystem {
     public int MotionMagicPIDIndex = 0;
     public int MotionMagicPIDSlot = 0;
     public double MotionMagicDistance;
+    public double correctionR = 1.02;
     
     public final double TIMEOUT = 0.002;
     private final AHRS ahrs = RobotMap.driveTrainAHRS;
@@ -176,6 +177,8 @@ public class DriveTrain extends Subsystem {
     
     
     public void MotionMagicInit(double distance) {
+    	//rightFrontMotor.follow(leftFrontMotor);
+    	
     	MotionMagicDistance = distance;
     	leftFrontMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, MotionMagicPIDIndex, RobotMap.TIMEOUT_MS);
     	rightFrontMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, MotionMagicPIDIndex, RobotMap.TIMEOUT_MS);
@@ -196,15 +199,15 @@ public class DriveTrain extends Subsystem {
     	leftFrontMotor.configMotionAcceleration(MotionMagicAcceleration, RobotMap.TIMEOUT_MS);
     	leftFrontMotor.configMotionCruiseVelocity(MotionMagicVelocity, RobotMap.TIMEOUT_MS);
     	
-    	rightFrontMotor.configMotionAcceleration(MotionMagicAcceleration, RobotMap.TIMEOUT_MS);
-    	rightFrontMotor.configMotionCruiseVelocity(MotionMagicVelocity, RobotMap.TIMEOUT_MS);
+    	rightFrontMotor.configMotionAcceleration((int)(correctionR*MotionMagicAcceleration), RobotMap.TIMEOUT_MS);
+    	rightFrontMotor.configMotionCruiseVelocity((int)(correctionR*MotionMagicVelocity), RobotMap.TIMEOUT_MS);
     	
     	leftFrontMotor.setSelectedSensorPosition(0, MotionMagicPIDIndex, RobotMap.TIMEOUT_MS);
     	rightFrontMotor.setSelectedSensorPosition(0, MotionMagicPIDIndex, RobotMap.TIMEOUT_MS);
     	
     	MotionMagicDistance *= TICKS_PER_FOOT;
     	leftFrontMotor.set(ControlMode.MotionMagic, MotionMagicDistance);
-    	rightFrontMotor.set(ControlMode.MotionMagic, MotionMagicDistance);
+    	rightFrontMotor.set(ControlMode.MotionMagic, correctionR*MotionMagicDistance);
     }
     
     public void MotionMagicInit(double distance, int backVelocity, int backAcceleration) {
@@ -228,19 +231,19 @@ public class DriveTrain extends Subsystem {
     	leftFrontMotor.configMotionAcceleration(backAcceleration, RobotMap.TIMEOUT_MS);
     	leftFrontMotor.configMotionCruiseVelocity(backVelocity, RobotMap.TIMEOUT_MS);
     	
-    	rightFrontMotor.configMotionAcceleration(backAcceleration, RobotMap.TIMEOUT_MS);
-    	rightFrontMotor.configMotionCruiseVelocity(backVelocity, RobotMap.TIMEOUT_MS);
+    	rightFrontMotor.configMotionAcceleration((int)(correctionR*backAcceleration), RobotMap.TIMEOUT_MS);
+    	rightFrontMotor.configMotionCruiseVelocity((int)(correctionR*backVelocity), RobotMap.TIMEOUT_MS);
     	
     	leftFrontMotor.setSelectedSensorPosition(0, MotionMagicPIDIndex, RobotMap.TIMEOUT_MS);
     	rightFrontMotor.setSelectedSensorPosition(0, MotionMagicPIDIndex, RobotMap.TIMEOUT_MS);
     	
     	MotionMagicDistance *= TICKS_PER_FOOT;
     	leftFrontMotor.set(ControlMode.MotionMagic, MotionMagicDistance);
-    	rightFrontMotor.set(ControlMode.MotionMagic, MotionMagicDistance);
+    	rightFrontMotor.set(ControlMode.MotionMagic, correctionR*MotionMagicDistance);
     }
     
     public boolean isAtPIDDestination() {
-		return (Math.abs(this.leftFrontMotor.getSelectedSensorPosition(MotionMagicPIDIndex) - MotionMagicDistance) < 500);// || this.leftFrontMotor.getSelectedSensorPosition(MotionMagicPIDIndex) < -MotionMagicDistance + 6000)
+		return (Math.abs(this.leftFrontMotor.getSelectedSensorPosition(MotionMagicPIDIndex) - MotionMagicDistance) < 500) || (Math.abs(this.rightFrontMotor.getSelectedSensorPosition(MotionMagicPIDIndex) - MotionMagicDistance) < 500);// || this.leftFrontMotor.getSelectedSensorPosition(MotionMagicPIDIndex) < -MotionMagicDistance + 6000)
 	}
     
     public void initSpeedMode() {    	
