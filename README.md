@@ -7,128 +7,130 @@ Each function of the robot is assigned a subsystem. These subsystems contain all
 # Subsystems
 Each subsystem controls a specific function of the robot.  
 	- **Claw**  
-	 		description  
+	 		Controls the pneumatic part of the claw.  
 	- **Climber**  
-	 		description  
+	 		Enables the robot to climb on a small metal rod.  
 	- **Collector**  
-			description  
+			Controls the wheels present inside the claw for one side.
 	- **CubeSensor**  
-			description  
+			Senes cubes for easy pick-up
 	- **DriveTrain**  
-			description  
+		  	Controls drive train (the wheels of the robot)
 	- **Elevator**  
-			description  
+			Controls the elevator which transports the cubes up and down.  
 	- **ReverseCollector**  
-			description  
+			Controls the wheels present inside the claw for the other side.
 	- **Shifters**  
-			description  
+			Shift between high gear and low gear.  
 	- **Shoulder**  
-			description  
+			Behaves like a mechanical shoulder. 
 # Commands
 Each command performs a simple event of a subsystem.
+	
 	- *AutonomousCommand.java*  
-		description  
+		Starts the autonomous code.
 	- *AutonomousTextFirstChar.java*  
-		description  
+		Works with Pygame to provide exact values for autonomous path.
 	- *AutonomousTextLeftLeft.java*  
-		description  
+		Works with Pygame to provide exact values for autonomous path.
 	- *AutonomousTextLeftRight.java*  
-		description  
+	 	Works with Pygame to provide exact values for autonomous path.
 	- *AutonomousTextLeftSecondChar.java*  
-		description  
+		Works with Pygame to provide exact values for autonomous path.	 
 	- *AutonomousTextRightLeft.java*  
-		description  
+		Works with Pygame to provide exact values for autonomous path.
 	- *AutonomousTextRightRight.java*  
-		description  
+		Works with Pygame to provide exact values for autonomous path.	  
 	- *AutonomousTextRightSecondChar.java*  
-		description  
+		Works with Pygame to provide exact values for autonomous path.	  
 	- *BrakeOff.java*  
-		description  
+		Sets the brakes on the elevator.
 	- *BrakeOn.java*  
-		description  
+	  	Removes the brakes from the elevator.
 	- *CheckCube.java*  
-		description  
+	  	Checks for a cube.
 	- *ClawAndCollector.java*  
-		description  
+	 	Closes claw and runs the collector.
 	- *ClimbDown.java*  
-		description  
+	  	Climbs down the metal rod.
 	- *ClimbUp.java*  
-		description  
+		Climbs up the rod.
 	- *CloseClaw.java*  
-		description  
+		Closes claw to secure the cube.
 	- *DriveToCurrent.java*  
-		description  
+		Drives straight until it gets a current higher than specified value.
 	- *DriveXFeetMotionMagic.java*  
-		description  
+		Drives X feet using Motion Magic
 	- *ElevateToXPositionMotionMagic.java*  
-		description  
+		Elevates the cube to X position using Motion Magic.
 	- *ElevateXSeconds.java*  
-		description  
+	 	Elevates the cube for X seconds.
 	- *InvertDrive.java*  
-		description  
+	 	Reverses/inverts the drive train.
 	- *LowerShoulder.java*  
-		description  
+		Lowers the shoulder.
 	- *LowerShoulderAndCollect.java*  
-		description  
+	 	Lowers the shoulder and runs the collector.
 	- *OpenClaw.java*  
-		description  
+ 		Opens claw to take in a cube.
 	- *OverrideElevator.java*  
-		description  
+	 	Overrides elevator's present action and elevates.
 	- *OverrideSpeedHalf.java*  
-		description  
+		Overrides the drive train's present speed and sets it to it's half.
 	- *OverrideSpeedQuarter.java*  
-		description  
+	 	Overrides the drive train's present speed and sets it to it's quarter.
 	- *RaiseElevatorAndShoulder.java*  
-		description  
+		Raises elevator and shoulder.
 	- *RaiseShoulder.java*  
-		description  
+		Raises the shoulder only.
 	- *RaiseShoulderAndStopCollect.java*  
-		description  
+		Raises shoulder and stops the collector.
 	- *RunCollector.java*  
-		description  
+		Runs the collector (makes the wheels move).
 	- *ShiftHigh.java*  
-		description  
+		Shifts to high gear.
 	- *ShiftLow.java*  
-		description  
+		Shifts to low gear.
 	- *StationOneLeftScale.java*  
-		description  
+		Preset for auton when beginning at station one and aiming for left scale.  
 	- *StationOneLeftSwitch.java*  
-		description  
+		Preset for auton when beginning at station one and aiming for left switch.  
 	- *StationOneRightScale.java*  
-		description  
+		Preset for auton when beginning at station one and aiming for right scale. 
 	- *StationOneRightSwitch.java*  
-		description  
+		Preset for auton when beginning at station one and aiming for right switch.  
 	- *StationOneScale.java*  
-		description  
+		Preset for auton when beginning at station one and aiming for scale.  
 	- *StationOneSwitch.java*  
-		description  
+		Preset for auton when beginning at station one and aiming for switch. 
 	- *StationThreeLeftScale.java*  
-		description  
+		Preset for auton when beginning at station three and aiming for left scale. 
 	- *StationThreeLeftSwitch.java  
-		description  
+		Preset for auton when beginning at station three and aiming for left switch.  
 	- *StationThreeRightScale.java*  
-		description  
+		Preset for auton when beginning at station three and aiming for right scale.  
 	- *StationThreeRightSwitch.java*  
-		description  
+		Preset for auton when beginning at station three and aiming for right switch.  
 	- *StationThreeScale.java*  
-		description  
+		Preset for auton when beginning at station three and aiming for scale. 
 	- *StationThreeSwitch.java*  
-		description  
+		Preset for auton when beginning at station three and aiming for switch. 
 	- *StationTwoLeftSwitch.java*  
-		description  
+		Preset for auton when beginning at station two and aiming for left switch.  
 	- *StationTwoRightSwitch.java*  
-		description  
+		Preset for auton when beginning at station two and aiming for right switch. 
 	- *StationTwoSwitch.java*  
-		description  
+		Preset for auton when beginning at station two and aiming for left switch. 
 	- *StopCollector.java*  
-		description  
+		Stops collector. 
 	- *StopElevator.java*  
-		description  
+		Stops elevator.  
 	- *TankDrive.java*  
-		description  
+	 	Enables robot to drive like a tank.
 	- *ToggleLockStraight.java*  
-		description  
+		Makes the robot go straight.
 	- *TurnNDegreesAbsolutePID.java*  
-		description  
-	- *WaitNSeconds.java*  
-		description  
+		Enables robot to turn N degrees absolute.
+	- *WaitNSeconds.java*
+		Waits for N seconds and does nothing.
+		  
