@@ -70,6 +70,8 @@ public class Elevator extends Subsystem {
     public double MotionMagicDistance;
     
     public boolean moveable = false;
+    
+    public boolean up = false;
 
     @Override
     public void initDefaultCommand() {
@@ -96,7 +98,10 @@ public class Elevator extends Subsystem {
 
 		motor.selectProfileSlot(1, 0);
 		motor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, RobotMap.TIMEOUT_MS);
-		motor.configClosedloopRamp(1, RobotMap.TIMEOUT_MS);
+		if (up) 
+			motor.configClosedloopRamp(0.5, RobotMap.TIMEOUT_MS);
+		else
+			motor.configClosedloopRamp(1, RobotMap.TIMEOUT_MS);
 
 		motor.configNominalOutputForward(0, RobotMap.TIMEOUT_MS);
 		motor.configNominalOutputReverse(0, RobotMap.TIMEOUT_MS);
@@ -224,5 +229,8 @@ public class Elevator extends Subsystem {
 		return (Math.abs(this.motor.getSelectedSensorPosition(0) - MotionMagicDistance) < 500);// || this.leftFrontMotor.getSelectedSensorPosition(MotionMagicPIDIndex) < -MotionMagicDistance + 6000)
 	}
     
+    public void setUp(boolean u) {
+    	up = u;
+    }
 }
 
