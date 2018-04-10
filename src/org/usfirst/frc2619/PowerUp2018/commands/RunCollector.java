@@ -44,7 +44,10 @@ public class RunCollector extends Command {
     @Override
     protected void initialize() {
     	in = Robot.collector.getIn(m_speed);
-    	this.setTimeout(2);
+    	if (in)
+    		this.setTimeout(4);
+    	else
+    		this.setTimeout(2);
     	Robot.collector.setOutput(m_speed);
     	Robot.reverseCollector.setOutput(m_speed);
     	Robot.collector.enable();
@@ -59,10 +62,12 @@ public class RunCollector extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-    	if (in)
+    	if (Robot.autonRunning) 
+    		return this.isTimedOut();
+    	else if (in)
     		return !Robot.oi.buttonBox.getRawButton(2);
     	else
-    		return this.isTimedOut() && (!Robot.oi.buttonBox.getRawButton(1) && !Robot.oi.buttonBox.getRawButton(5));
+    		return (!Robot.oi.buttonBox.getRawButton(1) && !Robot.oi.buttonBox.getRawButton(5));
     }
 
     // Called once after isFinished returns true

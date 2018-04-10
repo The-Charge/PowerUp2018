@@ -63,5 +63,6 @@ public class StationThreeRightScale extends CommandGroup {
     	addSequential(new DriveXFeetMotionMagic(20));
     	addSequential(new TurnNDegreesAbsolutePID(-45));
     	addSequential(new DriveXFeetMotionMagic(2.5));
+    	addSequential(new RunCollector(-.5));
     } 
 }
