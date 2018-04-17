@@ -52,7 +52,7 @@ public class StationThreeRightSwitch extends CommandGroup {
     	addSequential(new DriveXFeetMotionMagic(12));
     	addParallel(new LowerShoulder());
     	addSequential(new TurnNDegreesAbsolutePID(-90));
-    	addSequential(new ElevateToXPositionMotionMagic(.3));
+    	addSequential(new ElevateToXPositionMotionMagic(.4));
     	addSequential(new DriveToCurrent(.2, 5));
     	addSequential(new RunCollector(-.6));
     	addSequential(new DriveXFeetMotionMagic(-4));

@@ -47,7 +47,7 @@ public class RunCollector extends Command {
     	if (in)
     		this.setTimeout(4);
     	else
-    		this.setTimeout(2);
+    		this.setTimeout(1);
     	Robot.collector.setOutput(m_speed);
     	Robot.reverseCollector.setOutput(m_speed);
     	Robot.collector.enable();

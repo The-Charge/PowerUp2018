@@ -121,7 +121,7 @@ public class RobotMap {
         //elevatorFollowerMotor.setInverted(true);
         driveTrainRightFrontMotor.setInverted(true);
         driveTrainRightRearMotor.setInverted(true);
-        reverseCollectorMotor.setInverted(true);
+        //reverseCollectorMotor.setInverted(true);
         //reverseCollectorEncoder.setReverseDirection(true);
         collectorEncoder.setReverseDirection(true);
         

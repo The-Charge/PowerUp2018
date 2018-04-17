@@ -51,19 +51,24 @@ public class StationOneLeftScale extends CommandGroup {
     	/*addSequential(new ShiftLow());
     	addSequential(new DriveXFeetMotionMagic(25));
     	addSequential(new LowerShoulder());
-    	addParallel(new TurnNDegreesAbsolutePID(88));
+    	addParallel(new TurnNDegreesAbsolutePID(82.5));
     	addSequential(new ElevateToXPositionMotionMagic(1));
     	addSequential(new RaiseShoulder());
-    	//addSequential(new DriveToCurrent(.13, 3));
-    	//addSequential(new RunCollector(-.15));
+    	addSequential(new DriveXFeetMotionMagic(2));
+    	addSequential(new RunCollector(-.25));
     	//addParallel(new RaiseShoulder());
     	addSequential(new DriveXFeetMotionMagic(-4, 6000, 1000));
     	addSequential(new ElevateToXPositionMotionMagic(0.13));*/
     	addSequential(new ShiftLow());
-    	addSequential(new DriveXFeetMotionMagic(20));
-    	addSequential(new TurnNDegreesAbsolutePID(-45));
+    	addSequential(new DriveXFeetMotionMagic(19));
+    	addSequential(new TurnNDegreesAbsolutePID(32));
+    	addSequential(new LowerShoulder());
+    	addSequential(new ElevateToXPositionMotionMagic(.9));
+    	addSequential(new RaiseShoulder());
     	addSequential(new DriveXFeetMotionMagic(2.5));
-    	addSequential(new RunCollector(-.5));
+    	addSequential(new RunCollector(-.4));
+    	addSequential(new DriveXFeetMotionMagic(-2.5));
+    	addSequential(new ElevateToXPositionMotionMagic(.13));
  
     } 
 }
