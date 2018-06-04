@@ -221,5 +221,10 @@ public class Elevator extends Subsystem {
 		return (Math.abs(this.motor.getSelectedSensorPosition(0) - MotionMagicDistance) < 500);// || this.leftFrontMotor.getSelectedSensorPosition(MotionMagicPIDIndex) < -MotionMagicDistance + 6000)
 	}
     
+    public double getCurrent() {
+    	SmartDashboard.putNumber("Elevator Current: ", motor.getOutputCurrent());
+		return motor.getOutputCurrent();
+		
+	}
 }
 
